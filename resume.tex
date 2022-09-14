@@ -1,0 +1,189 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.1.2, 1 February 2017) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,letter]{altacv}
+
+%% AltaCV uses the fontawesome and academicon fonts
+%% and packages.
+%% See texdoc.net/pkg/fontawecome and http://texdoc.net/pkg/academicons for full list of symbols.
+%%
+%% Compile with LuaLaTeX for best results. If you
+%% want to use XeLaTeX, you may need to install
+%% Academicons.ttf in your operating system's font
+%% folder.
+
+
+% Change the page layout if you need to
+\geometry{left=1cm,right=9cm,marginparwidth=7.25cm,marginparsep=0.75cm,top=0.5cm,bottom=1cm}
+
+% Change the font if you want to.
+
+% If using pdflatex:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage[none]{hyphenat}
+\usepackage[document]{ragged2e}
+
+% If using xelatex or lualatex:
+% \setmainfont{Lato}
+
+% Change the colours if you want to
+\definecolor{AccentGreen}{HTML}{339966}
+\definecolor{AcePurple}{HTML}{800080}
+\definecolor{DarkerPurple}{HTML}{5b005b}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{SomeBlue}{HTML}{4286f4}
+\colorlet{heading}{AcePurple}%Sepia}
+\colorlet{accent}{DarkerPurple}%AccentGreen}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+\begin{document}
+\name{Galen Guyer}
+% \tagline{Software Engineer Seeking a Spring or Summer 2022 Co-op}
+\personalinfo{%
+  % Not all of these are required!
+  % You can add your own with \printinfo{symbol}{detail}
+  \email{galen@galenguyer.com}\\\smallskip
+  \phone{(360) 797-9404}\\\smallskip
+  \github{galenguyer}\\\smallskip
+  \homepage{galenguyer.com}\\\smallskip
+  \linkedin{in/galenguyer}\\\smallskip
+  %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+%   \orcid{orcid.org/0000-0000-0000-0000}
+}
+
+%% Make the header extend all the way to the right, if you want.
+\begin{fullwidth}
+\marginpar{\makesidebarheader\input{sidebar.tex}}
+    \vspace*{-1\baselineskip}
+\makecvheader
+\end{fullwidth}
+%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+%% You can always just use \marginpar{...} if you do
+%% not need to align the top of the contents to any
+%% \cvsection title in the "main" bar.
+
+\cvsection{Experience}
+
+\cvevent{Bryx}{DevOps Engineer}{May 2022 - Present}{Rochester, NY}
+\begin{itemize}
+  \item Designed and tested a deduplication system migration from Redis to self-hosted CockroachDB for reduced latency and increased reliability
+  \item Built a tool to open the database firewall for managed kubernetes nodes to allow for access from within the cluster without manual intervention
+\end{itemize}
+\textit{\textbf{Tools:} Kubernetes, Puppet, Rust, Go, Python, CockroachDB}
+
+%\divider
+
+\cvevent{Council Rock}{DevOps Intern}{January 2022 - May 2022}{Rochester, NY}
+\begin{itemize}
+  \item Moved cloud deployments from virtual machines to Kubernetes within AWS
+  \item Diagnosed and resolved issues with long-lasting UDP connections caused by Linux kernel configurations
+\end{itemize}
+\textit{\textbf{Tools:} Kubernetes, Linux}
+
+% \cvevent{Blackbaud}{DevOps Intern - Raiser's Edge NXT}{May 2021 -- August 2021}{Remote}
+% \begin{itemize}
+%   \item Worked with the Splunk API to automate creation and updating of alerts from version-controlled files
+%   \item Designed sane defaults to be loaded by a script to ease creation and updating of alerts in bulk
+% \end{itemize}
+% \textit{\textbf{Tools:} PowerShell, Splunk}
+
+%\divider
+
+\cvevent{Microsoft}{Software Engineering Intern - One Customer Voice Team}{June 2019 -- August 2019}{Redmond, WA}
+\begin{itemize}
+\item Improved item grouping for the internal feedback aggregation tool
+\item Exposed all previously hidden top level fields and automatically detected field type via ElasticSearch mappings, greatly increasing both the granularity and flexibility for users
+% \item Implemented frontend, backend, and tests with 100\% backend code coverage
+\end{itemize}
+\textit{\textbf{Tools:} C\#, ASP.NET, ElasticSearch, AngularJS}
+
+\cvsubevent{Software Engineering Intern - Office Security Penetration Testing Team}{June 2018 -- August 2018}{Redmond, WA}
+\begin{itemize}
+\item Developed a PowerShell script to create a Windows VM, automatically install Office, gather debugging symbols for Office, and send these to a Microsoft \\ Security Risk Detection server to install and start a fuzzing run
+% \item Implemented a server to collect, deduplicate, and report new bugs
+\item Worked closely with the Microsoft Security Risk Detection team to help improve the job deployment process while the tool was in internal beta
+\end{itemize}
+\textit{\textbf{Tools:} PowerShell, Microsoft Security Risk Detection, Azure, ASP.NET}
+
+\smallskip
+
+\cvsection{Projects}
+
+%\divider
+
+%\project{RIT COVID-19 Dashboard}{https://github.com/galenguyer/rit-covid-dashboard}
+\noghproject{RIT COVID-19 Dashboard}{https://ritcoviddashboard.com}
+\begin{itemize}
+\item Wrote a Python scraper to check the official dashboard on an interval and update a SQLite database with the numbers from the official dashboard, then expose the saved data with a JSON API
+\item Consumed data from the scraper in a React app that provides all the information from the official dashboard as well as changes over a user-selected time period and graphs of all historical data
+% \item Used by roughly 10\% of the student body within 24 hours of launch
+\end{itemize}
+\textit{\textbf{Tools:} Python, SQLite, Flask, React, Docker}
+
+%\divider
+
+\project{HOSTSdotTXT}{https://github.com/hostsdottxt}
+\begin{itemize}
+  \item Wrote an API and authoritative DNS resolver in Rust to serve DNS records \\ from a PostgreSQL database
+  \item Achieved a 99th percentile latency for resolving queries of under 2ms with \\ near-instant propogation of changes by using native PostgreSQL replication
+\end{itemize}
+\textit{\textbf{Tools:} Rust, PostgreSQL, ReactJS}
+
+% \project{GenericBot}{https://github.com/galenguyer/GenericBot}
+% \begin{itemize}
+% \item Built a Discord bot to provide moderation tools and fun commands to over 70 servers totaling over 30,000 users
+% \item Used C\# to connect to Discord's API and store all user data in an encrypted, self-hosted MongoDB instance
+% % \item Exposed user-stored quotes via a webpage ASP.NET Razor Pages for server-side rendering and JavaScript for fast, responsive search
+% \end{itemize}
+% \textit{\textbf{Tools:} C\#, MongoDB, ASP.NET, Razor Pages, HTML/CSS/JS, Azure Build Pipelines}
+
+% \noghproject{Global Content Delivery Network}{https://galenguyer.com}
+% \begin{itemize}
+% \item Consists of Azure Virtual Machines distributed around the globe to provide the least latency based on the user's geographical location
+% \item Deploys with Terraform for easily reproducible infrastructure
+% \item Uses Ansible to distribute static files, configuration files, and SSL certificates from a central server to all edge servers
+% \end{itemize}
+% \textit{\textbf{Tools:} Azure Virtual Machines, Azure Traffic Managers, Bash, Nginx}
+
+% \project{Kubernetes Cluster}{https://github.com/galenguyer/k8s}
+% \begin{itemize}
+% \item Deployed a Kubernetes cluster running on virtual machines managed by Proxmox with 3 control plane and 2 compute nodes
+% \item Used HAProxy and PFSense for load balancing and routing
+% \item Hosted a static website and a small web app written in Flask and backed by Redis for persistent data storage
+% \end{itemize}
+% \textit{\textbf{Tools:} Proxmox, Kubernetes, HAProxy, PFSense}
+
+\clearpage
+
+\end{document}
