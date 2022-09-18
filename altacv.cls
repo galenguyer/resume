@@ -120,14 +120,17 @@
 \newcommand{\orcid}[1]{\printinfo{\orcidsymbol}{#1}}
 \newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
 
-\newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
+\newcommand{\personalinfo}[2]{
+  \def\@personalinfoleft{#1}
+  \def\@personalinforight{#2}
+}
 
 \newcommand{\makecvheader}{%
   \begingroup
     \ifdef{\@photodiameter}{\begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}}{}%
     \raggedright\color{emphasis}%
     {\fontsize{36}{40}\bfseries\MakeUppercase{\@name}\par}
-    \vspace{4.7px}
+    \vspace{12.5px}
     \ifdefined\@tagline
       {\large\bfseries\@tagline\par}
     \fi
@@ -151,7 +154,15 @@
 }
 
 \newcommand{\makesidebarheader}{
-    {\footnotesize\bfseries\@personalinfo\par}
+  {\footnotesize\bfseries
+    \begin{minipage}[t]{0.4\linewidth}
+      \@personalinfoleft
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.4\linewidth}
+      \@personalinforight
+    \end{minipage}
+  \par}
 }
 
 \renewenvironment{quote}{\color{accent}\itshape\large}{\par}
