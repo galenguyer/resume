@@ -25,12 +25,12 @@ jobs:
           mkdir out
           cp resume.pdf "out/Galen-Guyer-Resume-${{ github.ref_name }}.pdf"
           cp resume.pdf "out/Galen-Guyer-Resume-${SHORT_SHA}.pdf"
-          cp resume.pdf "out/Galen-Guyer-Resume-${DATE}.pdf"
 
       - name: Rename files (main)
         if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           cp resume.pdf "out/Galen-Guyer-Resume.pdf"
+          cp resume.pdf "out/Galen-Guyer-Resume-${DATE}.pdf"
 
       - name: Upload to R2
         uses: elementemerald/r2-upload-action@v1.1.2
